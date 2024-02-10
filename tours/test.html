@@ -12,6 +12,7 @@
             var text = nowhour + ":" + nowminutes + ":" + nowseconds;
             return text;
         }
+        setInterval(updateUnixTime, 1000);
     </script><br>
     <span id="Date"></span>
     <script type="text/javascript">
@@ -20,6 +21,7 @@
             var num = Date.now()/1000
             return num.toFixed(3)
         }
+        setInterval(updateUnixTime, 1000);
     </script>
 </body>
 </html>
