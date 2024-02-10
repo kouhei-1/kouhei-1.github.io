@@ -4,6 +4,7 @@
     <span id="Time"></span>
     <script type="text/javascript">
         document.getElementById("Time").innerHTML = "Time: "+showTime();
+        setInterval(showTime, 1);
         function showTime() {
             var now = new Date();
             var nowhour = now.getHours();
@@ -12,7 +13,6 @@
             var text = nowhour + ":" + nowminutes + ":" + nowseconds;
             return text;
         }
-        setInterval(showTime, 1);
     </script><br>
     <span id="Date"></span>
     <script type="text/javascript">
