@@ -4,7 +4,7 @@
     <span id="Time"></span>
     <script type="text/javascript">
         document.getElementById("Time").innerHTML = "Time: "+showTime();
-        setInterval(showTime, 1);
+        setInterval(showTime(), 1);
         function showTime() {
             var now = new Date();
             var nowhour = now.getHours();
@@ -21,7 +21,7 @@
             var num = Date.now()/1000
             return num.toFixed(3)
         }
-        setInterval(Unixtime_script, 1);
+        setInterval(Unixtime_script(), 1);
     </script>
 </body>
 </html>
