@@ -3,7 +3,7 @@
 <body>
     <span id="Time"></span>
     <script type="text/javascript">
-        setInterval(showTime, 1);
+        setInterval(showTime, 13);
         document.getElementById("Time").innerHTML = "Time: "+showTime();
         function showTime() {
             var now = new Date();
@@ -16,7 +16,7 @@
     </script><br>
     <span id="Date"></span>
     <script type="text/javascript">
-        setInterval(Unixtime_script, 1);
+        setInterval(Unixtime_script, 13);
         document.getElementById("Date").innerHTML = "Unixtime: "+Unixtime_script();
         function Unixtime_script(){
             var num = Date.now()/1000
