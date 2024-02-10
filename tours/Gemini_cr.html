@@ -16,11 +16,11 @@
 
     function Unixtime_script() {
       var unixTime = Date.now() / 1000;
-      document.getElementById("Date").innerHTML = "Unixtime: " + unixTime;
+      document.getElementById("Date").innerHTML = "Unixtime: " + unixTime.toFixed(3);
     }
 
-    setInterval(showTime, 1); // Update every second
-    setInterval(Unixtime_script, 1); // Update every second
+    setInterval(showTime, 1);
+    setInterval(Unixtime_script, 1);
   </script>
 </body>
 </html>
