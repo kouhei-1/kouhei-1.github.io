@@ -16,12 +16,12 @@
     </script><br>
     <span id="Date"></span>
     <script type="text/javascript">
+        setInterval(Unixtime_script, 1);
         document.getElementById("Date").innerHTML = "Unixtime: "+Unixtime_script();
         function Unixtime_script(){
             var num = Date.now()/1000
             return num.toFixed(3)
         }
-        setInterval(Unixtime_script, 1);
     </script>
 </body>
 </html>
