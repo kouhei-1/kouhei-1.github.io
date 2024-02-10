@@ -10,7 +10,7 @@
       var hours = now.getHours();
       var minutes = now.getMinutes();
       var seconds = now.getSeconds();
-      var text = "0"+hours.slice(-2) + ":" + "0"+minutes.slice(-2) + ":" + "0"+seconds.slice(-2);
+      var text = ("0"+hours).slice(-2) + ":" + ("0"+minutes).slice(-2) + ":" + ("0"+seconds).slice(-2);
       document.getElementById("Time").innerHTML = "Time: " + text;
     }
 
