@@ -5,11 +5,12 @@
   <span id="Date"></span>
 
   <script type="text/javascript">
+    //("0"+num).slice(-2)
     function showTime() {
       var now = new Date();
-      var hours = now.getHours();
-      var minutes = now.getMinutes();
-      var seconds = now.getSeconds();
+      var hours = ("0"+now.getHours()).slice(-2);
+      var minutes = ("0"+now.getMinutes()).slice(-2);
+      var seconds = ("0"+now.getSeconds()).slice(-2);
       var text = hours + ":" + minutes + ":" + seconds;
       document.getElementById("Time").innerHTML = "Time: " + text;
     }
