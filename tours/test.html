@@ -15,7 +15,7 @@
     </script><br>
     <span id="Date"></span>
     <script type="text/javascript">
-        document.getElementById("Date").innerHTML = Unixtime_script();
+        document.getElementById("Date").innerHTML = "Unixtime: "+Unixtime_script();
         function Unixtime_script(){
             var num = Date.now()/1000
             return num.toFixed(3)
