@@ -1,12 +1,17 @@
-<!DOCTYPE html>
 <html>
-  <head>
-    
-  </head>
-  <body>
-    <script>
-      console.log(Date.now())
-    </script>
-  </body>
-</html>
+<body>
+    <span id="text"></span>
+    <script type="text/javascript">
+        document.getElementById("text").innerHTML = showTime();
 
+        function showTime() {
+            var now = new Date();
+            var nowhour = now.getHours();
+            var nowminutes = now.getMinutes();
+            var nowseconds = now.getSeconds();
+            var text = nowhour + ":" + nowminutes + ":" + nowseconds;
+            return text;
+        }
+    </script>
+</body>
+</html>
