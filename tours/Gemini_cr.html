@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<body>
+  <span id="Time"></span><br>
+  <span id="Date"></span>
+
+  <script type="text/javascript">
+    function showTime() {
+      var now = new Date();
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+      var text = hours + ":" + minutes + ":" + seconds;
+      document.getElementById("Time").innerHTML = "Time: " + text;
+    }
+
+    function Unixtime_script() {
+      var unixTime = Date.now() / 1000;
+      document.getElementById("Date").innerHTML = "Unixtime: " + unixTime;
+    }
+
+    setInterval(showTime, 1000); // Update every second
+    setInterval(Unixtime_script, 1000); // Update every second
+  </script>
+</body>
+</html>
