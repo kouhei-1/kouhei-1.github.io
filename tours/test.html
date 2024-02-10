@@ -15,7 +15,11 @@
     </script><br>
     <span id="Date"></span>
     <script type="text/javascript">
-        document.getElementById("Date").innerHTML = "Unixtime: " + Date.now()/100;
+        document.getElementById("Date").innerHTML = Unixtime_script();
+        function Unixtime_script(){
+            var num = Date.now()/1000
+            return num.toFixed(3)
+        }
     </script>
 </body>
 </html>
