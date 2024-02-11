@@ -2,8 +2,8 @@
 <meta charset="utf-8">
 <html>
   <body>
-    <span id="Time"></span><br>
-    <span id="Date"></span>
+    <span id="Local_time"></span><br>
+    <span id="Unixtime"></span>
 
     <script type="text/javascript">
       //("0"+num).slice(-2)
@@ -17,12 +17,12 @@
         var seconds = ("0"+now.getSeconds()).slice(-2);
         var after_decimal = ((Date.now()%1000/1000).toFixed(3)).slice(-4)
         var text = year+"/"+month+"/"+date+" " + hours + ":" + minutes + ":" + seconds+after_decimal;
-        document.getElementById("Time").innerHTML = "Time: " + text;
+        document.getElementById("Local_time").innerHTML = "Local_time: " + text;
       }
 
       function Unixtime_script() {
         var unixTime = Date.now() / 1000;
-        document.getElementById("Date").innerHTML = "Unixtime: " + unixTime.toFixed(3);
+        document.getElementById("Unixtime").innerHTML = "Unixtime: " + unixTime.toFixed(3);
       }
 
       setInterval(showTime, 17);
