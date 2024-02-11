@@ -3,6 +3,7 @@
 <html>
   <body>
     <span id="Local_time"></span><br>
+    <span id="UTC_time"></span><br>
     <span id="Unixtime"></span>
 
     <script type="text/javascript">
@@ -18,6 +19,19 @@
         var after_decimal = ((Date.now()%1000/1000).toFixed(3)).slice(-4)
         var text = year+"/"+month+"/"+date+" " + hours + ":" + minutes + ":" + seconds+after_decimal;
         document.getElementById("Local_time").innerHTML = "Local_time: " + text;
+      }
+
+      function UTCTime() {
+        var UTC_now = new Date();
+        var UTC_year = now.getUTCFullYear();
+        var UTC_month = ("0"+now.getUTCMonth()).slice(-2);
+        var UTC_date = ("0"+now.getUTCDate()).slice(-2);
+        var UTC_hours = ("0"+now.getUTCHours()).slice(-2);
+        var UTC_minutes = ("0"+now.getUTCMinutes()).slice(-2);
+        var UTC_seconds = ("0"+now.getUTCSeconds()).slice(-2);
+        var UTC_after_decimal = ((Date.now()%1000/1000).toFixed(3)).slice(-4)
+        var UTC_text = UTC_year+"/"+UTC_month+"/"+UTC_date+" " + UTC_hours + ":" + UTC_minutes + ":" + UTC_seconds+UTC_after_decimal;
+        document.getElementById("UTC_time").innerHTML = "UTC_time: " + UTC_text;
       }
 
       function Unixtime_script() {
