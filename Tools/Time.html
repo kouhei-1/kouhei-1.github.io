@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html>
-<body>
-  <span id="Time"></span><br>
-  <span id="Date"></span>
+  <body>
+    <span id="Time"></span><br>
+    <span id="Date"></span>
 
-  <script type="text/javascript">
-    //("0"+num).slice(-2)
-    function showTime() {
-      var now = new Date();
-      var hours = ("0"+now.getHours()).slice(-2);
-      var minutes = ("0"+now.getMinutes()).slice(-2);
-      var seconds = ("0"+now.getSeconds()).slice(-2);
-      var after_decimal = ((Date.now()%1000/1000).toFixed(3)).slice(-4)
-      var text = hours + ":" + minutes + ":" + seconds+after_decimal;
-      document.getElementById("Time").innerHTML = "Time: " + text;
-    }
+    <script type="text/javascript">
+      //("0"+num).slice(-2)
+      function showTime() {
+        var now = new Date();
+        var hours = ("0"+now.getHours()).slice(-2);
+        var minutes = ("0"+now.getMinutes()).slice(-2);
+        var seconds = ("0"+now.getSeconds()).slice(-2);
+        var after_decimal = ((Date.now()%1000/1000).toFixed(3)).slice(-4)
+        var text = hours + ":" + minutes + ":" + seconds+after_decimal;
+        document.getElementById("Time").innerHTML = "Time: " + text;
+      }
 
-    function Unixtime_script() {
-      var unixTime = Date.now() / 1000;
-      document.getElementById("Date").innerHTML = "Unixtime: " + unixTime.toFixed(3);
-    }
+      function Unixtime_script() {
+        var unixTime = Date.now() / 1000;
+        document.getElementById("Date").innerHTML = "Unixtime: " + unixTime.toFixed(3);
+      }
 
-    setInterval(showTime, 17);
-    setInterval(Unixtime_script, 13);
-  </script>
-</body>
+      setInterval(showTime, 17);
+      setInterval(Unixtime_script, 13);
+    </script>
+  </body>
 </html>
