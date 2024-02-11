@@ -23,12 +23,12 @@
 
       function UTCTime() {
         var UTC_now = new Date();
-        var UTC_year = now.getUTCFullYear();
-        var UTC_month = ("0"+now.getUTCMonth()).slice(-2);
-        var UTC_date = ("0"+now.getUTCDate()).slice(-2);
-        var UTC_hours = ("0"+now.getUTCHours()).slice(-2);
-        var UTC_minutes = ("0"+now.getUTCMinutes()).slice(-2);
-        var UTC_seconds = ("0"+now.getUTCSeconds()).slice(-2);
+        var UTC_year = UTC_now.getUTCFullYear();
+        var UTC_month = ("0"+UTC_now.getUTCMonth()).slice(-2);
+        var UTC_date = ("0"+UTC_now.getUTCDate()).slice(-2);
+        var UTC_hours = ("0"+UTC_now.getUTCHours()).slice(-2);
+        var UTC_minutes = ("0"+UTC_now.getUTCMinutes()).slice(-2);
+        var UTC_seconds = ("0"+UTC_now.getUTCSeconds()).slice(-2);
         var UTC_after_decimal = ((Date.now()%1000/1000).toFixed(3)).slice(-4)
         var UTC_text = UTC_year+"/"+UTC_month+"/"+UTC_date+" " + UTC_hours + ":" + UTC_minutes + ":" + UTC_seconds+UTC_after_decimal;
         document.getElementById("UTC_time").innerHTML = "UTC_time: " + UTC_text;
