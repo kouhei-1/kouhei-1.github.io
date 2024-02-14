@@ -41,7 +41,7 @@
       function Unixtime_script() {
         var unixTime = Date.now() / 1000;
         document.getElementById("Unixtime").innerHTML = "Unixtime: " + unixTime.toFixed(3);
-        document.getElementById("Unixbinary").innerHTML = "Unixbinary: " unixTime.toString(2);
+        document.getElementById("Unixbinary").innerHTML = "Unixbinary: " + (unixTime-(unixTime%1)).toString(2);
       }
 
       setInterval(showTime, 17);
