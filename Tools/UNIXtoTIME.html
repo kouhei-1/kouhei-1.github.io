@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <style>
+      
+    </style>
   </head>
   
   <body>
-    <form id="Unix_form" type="number"></form><br><span id="Unix_display"></span>
+    <input type="number" id="Unix_form" name="name" required minlength="4" maxlength="8" size="10" />
     <script>
       var Unix_time = document.getElementById("Unix_form").value;
       document.getElementById("UTC_time").innerHTML=Unix_time
