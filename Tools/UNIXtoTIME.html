@@ -7,10 +7,14 @@
   </head>
   
   <body>
-    <input type="number" id="Unix_form" name="name" required minlength="4" maxlength="8" size="10" />
-    <script>
-      var Unix_time = document.getElementById("Unix_form").value;
-        document.getElementById("UTC_time").innerHTML=Unix_time
-    </script>
-  </body>
+  <input type="number" id="Unix_form" name="name" required minlength="4" maxlength="8" size="10" />
+  <script>
+    document.getElementById("Unix_form").addEventListener("keydown", function(event) {
+      if (event.keyCode === 13) {
+        var Unix_time = document.getElementById("Unix_form").value;
+        document.getElementById("UTC_time").innerHTML = Unix_time;
+      }
+    });
+  </script>
+</body>
 </html>
