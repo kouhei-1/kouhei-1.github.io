@@ -8,12 +8,12 @@
   
   <body>
     <input type="number" id="Unix_form" name="name" required minlength="4" maxlength="8" size="10" /><br>
-    <span id="UTC_time"></span>
+    UTCtime: <span id="UTC_time"></span>
     <script>
       document.getElementById("Unix_form").addEventListener("keydown", function(event) {
         if (event.keyCode == 13) {
           var Unix_time = document.getElementById("Unix_form").value;
-          document.getElementById("UTC_time").innerHTML = Unix_time;
+          document.getElementById("UTC_time").innerHTML = unixToUtc(Unix_time);
         }
       });
     </script>
