@@ -18,7 +18,7 @@
       function showTime() {
         var now = new Date();
         var year = now.getFullYear();
-        var month = ("0"+now.getMonth()).slice(-2);
+        var month = ("0"+(now.getMonth()+1)).slice(-2);
         var date = ("0"+now.getDate()).slice(-2);
         var hours = ("0"+now.getHours()).slice(-2);
         var minutes = ("0"+now.getMinutes()).slice(-2);
@@ -31,7 +31,7 @@
       function UTCTime() {
         var UTC_now = new Date();
         var UTC_year = UTC_now.getUTCFullYear();
-        var UTC_month = ("0"+UTC_now.getUTCMonth()).slice(-2);
+        var UTC_month = ("0"+(UTC_now.getUTCMonth()+1)).slice(-2);
         var UTC_date = ("0"+UTC_now.getUTCDate()).slice(-2);
         var UTC_hours = ("0"+UTC_now.getUTCHours()).slice(-2);
         var UTC_minutes = ("0"+UTC_now.getUTCMinutes()).slice(-2);
