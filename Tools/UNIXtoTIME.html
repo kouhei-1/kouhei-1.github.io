@@ -9,7 +9,6 @@
     <input type="number" id="Unix_form" name="name" required minlength="4" maxlength="8" size="10" /><br>
     UTC time: <span id="UTC_time"></span>
     <script>
-      document.getElementById("UTC_form").innerHTML = Date.now()*100;
       function unixToUtc(unixTime) {
         if (isNaN(unixTime) || unixTime < 0) {
           return "Invalid Unix timestamp";
