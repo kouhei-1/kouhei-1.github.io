@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    
+  </head>
+  <body>
+    <span id="Api"></span>
+    <script>
+      function getApi(){
+        fetch('https://api.scratch.mit.edu/users/AmatsuTatsu/')
+        .then(response => response.json())
+        .then(data => {
+        document.getElementById("Api").innerHTML = data
+        });
+      }
+    </script>
+  </body>
