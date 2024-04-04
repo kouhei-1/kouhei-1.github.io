@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change File Extension</title>
+</head>
+<body>
+    <h2>Change File Extension</h2>
+    <form action="#" method="post" enctype="multipart/form-data">
+        <label for="file">Select file:</label><br>
+        <input type="file" id="file" name="file"><br><br>
+        <label for="new_extension">New Extension:</label><br>
+        <input type="text" id="new_extension" name="new_extension" placeholder="Enter new extension"><br><br>
+        <input type="submit" value="Change Extension">
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $file = $_FILES["file"]["name"];
+        $new_extension = $_POST["new_extension"];
+
+        if ($file && $new_extension) {
+            $old_extension = pathinfo($file, PATHINFO_EXTENSION);
+            $new_file = str_replace($old_extension, $new_extension, $file);
+
+            if (rename($file, $new_file)) {
+                echo "<p>File extension changed successfully. New file name: $new_file</p>";
+            } else {
+                echo "<p>Error occurred while changing file extension.</p>";
+            }
+        } else {
+            echo "<p>Please select a file and enter a new extension.</p>";
+        }
+    }
+    ?>
+</body>
+</html>
