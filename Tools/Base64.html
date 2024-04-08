@@ -3,35 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Base64 Encoder/Decoder</title>
-</head>
-<body>
-    <a href="./Tool_index.html">Tools</a><br><br>
-    <h2>Base64 Encoder/Decoder</h2>
-    <div>
-        <h3>Encode</h3>
-        <textarea id="encode_input" rows="5" cols="50" placeholder="Enter text to encode"></textarea><br>
-        <button onclick="encodeText()">Encode</button>
-    </div>
-    <br>
-    <div>
-        <h3>Decode</h3>
-        <textarea id="decode_input" rows="5" cols="50" placeholder="Enter Base64 string to decode"></textarea><br>
-        <button onclick="decodeText()">Decode</button>
-    </div>
-
+    <title>Redirect Page</title>
     <script>
-        function encodeText() {
-            var input = document.getElementById('encode_input').value;
-            var encoded = btoa(input);
-            document.getElementById('decode_input').value = encoded;
-        }
-
-        function decodeText() {
-            var input = document.getElementById('decode_input').value;
-            var decoded = atob(input);
-            document.getElementById('encode_input').value = decoded;
+        window.onload = function() {
+            // ページが読み込まれた後、リダイレクトを実行する
+            window.location.href = "./text_encoder.html"; // リダイレクト先のURLを指定する
         }
     </script>
+</head>
+<body>
+    <p>このページはリダイレクトされます。</p>
 </body>
 </html>
