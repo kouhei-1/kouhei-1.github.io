@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Encoder/Decoder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <a href="./Tool_index.html">Tools</a><br><br>
+    <h2>Text Encoder/Decoder</h2>
+    <div>
+        <label for="encoding_select">Select Encoding:</label>
+        <select id="encoding_select">
+            <option value="base64">Base64</option>
+            <option value="utf-8">UTF-8</option>
+        </select>
+    </div>
+    <br>
+    <div>
+        <h3>Text</h3>
+        <textarea id="text_input" rows="5" cols="50" placeholder="Enter text"></textarea><br>
+        <button onclick="convertText()">Convert</button>
+    </div>
+    <br>
+    <div>
+        <h3>Result</h3>
+        <textarea id="result_output" rows="5" cols="50" placeholder="Result will appear here"></textarea>
+    </div>
+
+    <script>
+        function convertText() {
+            var selectedEncoding = document.getElementById('encoding_select').value;
+            var text = document.getElementById('text_input').value;
+            var result = '';
+
+            switch (selectedEncoding) {
+                case 'base64':
+                    result = btoa(text);
+                    break;
+                case 'utf-8':
+                    result = encodeURIComponent(text);
+                    break;
+                default:
+                    result = 'Invalid encoding selected.';
+                    break;
+            }
+
+            document.getElementById('result_output').value = result;
+        }
+    </script>
+</body>
+</html>
