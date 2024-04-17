@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Content Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        textarea {
+            width: 95%;
+            height: 200px; /* テキストエリアの高さを適切な値に設定してください */
+            resize: none; /* ユーザーによるテキストエリアのリサイズを無効にします */
+        }
+        #download_button {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>File Content Viewer</h2>
+    <input type="file" id="file_input" onchange="readFile()">
+    <br>
+    <textarea id="file_content" placeholder="File content will appear here"></textarea>
+    <br>
+    <button id="download_button" onclick="downloadFile()">Download</button>
+
+    <script>
+        function readFile() {
+            var fileInput = document.getElementById('file_input');
+            var file = fileInput.files[0];
+            var fileReader = new FileReader();
+
+            fileReader.onload = function(event) {
+                var fileContent = event.target.result;
+                document.getElementById('file_content').value = fileContent;
+            };
+
+            fileReader.readAsText(file, 'UTF-8'); // UTF-8 エンコーディングを指定します
+        }
+
+        function downloadFile() {
+            var fileContent = document.getElementById('file_content').value;
+            var blob = new Blob([fileContent], { type: 'text/plain' });
+            var url = URL.createObjectURL(blob);
+
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = 'edited_file.txt'; // ダウンロード時のファイル名を設定します
+            a.click();
+
+            URL.revokeObjectURL(url);
+        }
+    </script>
+</body>
+</html>
