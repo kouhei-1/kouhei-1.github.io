@@ -1,31 +1,32 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Data Display</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Fetch APIでURL内容を表示</title>
 </head>
 <body>
-    <h1>API Data Display</h1>
-    <div id="apiData"></div>
+  <div id="result"></div>
 
-    <script>
-        $(document).ready(function() {
-            $.ajax({
-                url: 'https://api.scratch.mit.edu',
-                method: 'GET',
-                dataType: 'json',
-                success: function(response) {
-                    // APIからのレスポンスを表示する
-                    $('#apiData').text(JSON.stringify(response));
-                },
-                error: function(xhr, status, error) {
-                    // エラーが発生した場合は、エラーメッセージを表示する
-                    $('#apiData').text('Error: ' + error);
-                }
-            });
-        });
-    </script>
+  <script>
+    const url = 'https://api.scratch.mit.edu';
+
+    fetch(url)
+      .then(response => response.text())
+      .then(text => {
+        // 取得したデータを加工
+        const html = processData(text);
+
+        // HTMLに挿入
+        const resultElement = document.getElementById('result');
+        resultElement.innerHTML = html;
+      })
+      .catch(error => console.error(error));
+
+    function processData(text) {
+      // ここに、取得したデータを加工する処理を記述
+      // 例：不要な部分を削除したり、HTMLタグを追加したりする
+      return text;
+    }
+  </script>
 </body>
 </html>
