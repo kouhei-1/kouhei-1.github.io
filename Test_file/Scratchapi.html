@@ -11,7 +11,7 @@
       url: "https://api.scratch.mit.edu", 
       success: function(response) {
         console.log(response);
-        window.alert(response)
+        window.alert(JSON.parse(response))
         location.reload();
       },
       error: function(error) {
