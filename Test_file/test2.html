@@ -10,7 +10,7 @@
         open(window.location.href)
       }else{
         if(window.confirm("これに同意するとタブが大量に出現します。 また危険性については責任はおいかねます\nIf you agree to this, a lot of tabs will appear. We are not responsible for any risks.") == true){
-          for(;;){
+          for(let n = 0;n<5;n++){
             open("https://kouhei-1.github.io/Test_file/test2.html?agree=true","_self")
           }
         }else{
