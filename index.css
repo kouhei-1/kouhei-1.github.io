@@ -1,4 +1,9 @@
+body{
+  background-color: black;
+}
+
 .top_title{
+  color: white
   background-color: black;
   font-size: 40px;
   font-family: sans-serif;
