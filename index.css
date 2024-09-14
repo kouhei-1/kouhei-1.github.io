@@ -1,14 +1,9 @@
-body{
-  background-color: Black;
-  font-color: White;
-}
-
 .home_bar {
-  color: #ff4500;
+  font-color: White;
   font-family: sans-serif;
   font-size: 50px;
   font-weight: bald;
-  background-color: White;
+  background-color: Black;
   text-align: Center;
 }
 
