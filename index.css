@@ -1,10 +1,17 @@
-.under_url {
-  color: White;
+h1{
+  font-size: 40px;
+  font-family: sans-serif;
+  background-color: black;
+  text-align: center;
 }
 
 h2{
   font-size: 25px;
   font-family: sans-serif;
+}
+
+.under_url {
+  color: White;
 }
 
 .under_bar {
