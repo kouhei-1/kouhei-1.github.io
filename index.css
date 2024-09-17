@@ -5,6 +5,7 @@
   font-family: sans-serif;
   text-align: center;
   font-weight: bold;
+  margin-top: 0px;
 }
 
 h2{
@@ -24,5 +25,3 @@ h2{
   text-align: left;
   font-family: sans-serif;
 }
-
-margin-top: 0px !important;
