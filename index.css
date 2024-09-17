@@ -2,10 +2,6 @@ body{
   margin: 0;
 }
 
-body .top_title:not(){
-  margin:5px
-}
-
 .top_title{
   color: white;
   background-color: black;
