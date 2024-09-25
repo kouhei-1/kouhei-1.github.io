@@ -1,4 +1,6 @@
-body:not(p){
+body{
+  margin-left: 5;
+:not(p){
   margin: 0;
 }
 
