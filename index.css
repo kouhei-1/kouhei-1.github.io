@@ -1,8 +1,5 @@
-body{
+body:not(p){
   margin: 0;
-  :not(&){
-    margin: 4px;
-  }
 }
 
 .top_title{
