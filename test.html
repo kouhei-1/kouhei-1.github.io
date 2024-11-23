@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scratch User Info</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    .user-info {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 5px;
+      background-color: #fff;
+      max-width: 400px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Scratch User Info</h1>
+  <div class="user-info">
+    <p><strong>Username:</strong> <span id="username">Loading...</span></p>
+    <p><strong>User ID:</strong> <span id="userId">Loading...</span></p>
+    <p><strong>Joined:</strong> <span id="joined">Loading...</span></p>
+    <p><strong>Bio:</strong> <span id="bio">Loading...</span></p>
+    <p><strong>Country:</strong> <span id="country">Loading...</span></p>
+  </div>
+
+  <script>
+    // API URL
+    const apiUrl = "https://api.scratch.mit.edu/users/kouhei-1/";
+
+    // Fetch data from the API
+    async function fetchUserData() {
+      try {
+        const response = await fetch(apiUrl, { headers: { "X-Requested-With": "XMLHttpRequest" } });
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+
+        // Update HTML with user data
+        document.getElementById("username").textContent = data.username || "N/A";
+        document.getElementById("userId").textContent = data.id || "N/A";
+        document.getElementById("joined").textContent = new Date(data.joined).toLocaleDateString() || "N/A";
+        document.getElementById("bio").textContent = data.profile?.bio || "N/A";
+        document.getElementById("country").textContent = data.profile?.country || "N/A";
+      } catch (error) {
+        console.error("Failed to fetch user data:", error);
+        document.querySelector(".user-info").textContent = "Failed to load user data.";
+      }
+    }
+
+    // Call the function to fetch data
+    fetchUserData();
+  </script>
+</body>
+</html>
