@@ -3,63 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Scratch User Info</title>
+  <title>jQuery Scratch API Example</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
       padding: 20px;
       background-color: #f9f9f9;
     }
-    h1 {
-      color: #333;
-    }
-    .user-info {
-      border: 1px solid #ccc;
+    #user-info {
+      margin-top: 20px;
       padding: 15px;
-      border-radius: 5px;
+      border: 1px solid #ccc;
       background-color: #fff;
-      max-width: 400px;
+      border-radius: 5px;
+    }
+    .error {
+      color: red;
     }
   </style>
 </head>
 <body>
-  <h1>Scratch User Info</h1>
-  <div class="user-info">
-    <p><strong>Username:</strong> <span id="username">Loading...</span></p>
-    <p><strong>User ID:</strong> <span id="userId">Loading...</span></p>
-    <p><strong>Joined:</strong> <span id="joined">Loading...</span></p>
-    <p><strong>Bio:</strong> <span id="bio">Loading...</span></p>
-    <p><strong>Country:</strong> <span id="country">Loading...</span></p>
+  <h1>Scratch API Data Loader</h1>
+  <label for="username">Enter Scratch Username:</label>
+  <input type="text" id="username" placeholder="e.g., kouhei-1">
+  <button id="fetch-data">Fetch Data</button>
+
+  <div id="user-info" style="display: none;">
+    <h2>User Information</h2>
+    <p><strong>Username:</strong> <span id="display-username"></span></p>
+    <p><strong>User ID:</strong> <span id="user-id"></span></p>
+    <p><strong>Joined:</strong> <span id="joined"></span></p>
+    <p><strong>Bio:</strong> <span id="bio"></span></p>
+    <p><strong>Country:</strong> <span id="country"></span></p>
+    <img id="profile-pic" src="" alt="Profile Picture" style="max-width: 150px; display: none;">
   </div>
+  <p id="error-message" class="error"></p>
 
   <script>
-    // API URL
-    const apiUrl = "https://api.scratch.mit.edu/users/kouhei-1/";
+    $(document).ready(function () {
+      $("#fetch-data").click(function () {
+        const username = $("#username").val().trim();
 
-    // Fetch data from the API
-    async function fetchUserData() {
-      try {
-        const response = await fetch(apiUrl, { headers: { "X-Requested-With": "XMLHttpRequest" } });
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
+        if (!username) {
+          $("#error-message").text("Please enter a username.");
+          return;
         }
-        const data = await response.json();
 
-        // Update HTML with user data
-        document.getElementById("username").textContent = data.username || "N/A";
-        document.getElementById("userId").textContent = data.id || "N/A";
-        document.getElementById("joined").textContent = new Date(data.joined).toLocaleDateString() || "N/A";
-        document.getElementById("bio").textContent = data.profile?.bio || "N/A";
-        document.getElementById("country").textContent = data.profile?.country || "N/A";
-      } catch (error) {
-        console.error("Failed to fetch user data:", error);
-        document.querySelector(".user-info").textContent = "Failed to load user data.";
-      }
-    }
+        $("#error-message").text("");
+        $("#user-info").hide();
 
-    // Call the function to fetch data
-    fetchUserData();
+        $.ajax({
+          url: `https://api.scratch.mit.edu/users/${username}/`,
+          method: "GET",
+          dataType: "json",
+          success: function (data) {
+            $("#display-username").text(data.username || "N/A");
+            $("#user-id").text(data.id || "N/A");
+            $("#joined").text(new Date(data.joined).toLocaleDateString() || "N/A");
+            $("#bio").text(data.profile?.bio || "N/A");
+            $("#country").text(data.profile?.country || "N/A");
+
+            // Profile picture URL (using username in lowercase for consistency)
+            const profilePicUrl = `https://uploads.scratch.mit.edu/users/avatars/${username.toLowerCase()}.png`;
+            $("#profile-pic").attr("src", profilePicUrl).show();
+
+            $("#user-info").show();
+          },
+          error: function (xhr) {
+            const errorMessage = `Error: Unable to fetch data. Status: ${xhr.status}`;
+            $("#error-message").text(errorMessage);
+          }
+        });
+      });
+    });
   </script>
 </body>
 </html>
